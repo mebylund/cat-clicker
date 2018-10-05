@@ -1,11 +1,22 @@
 var clicks = 0;
-var cat1 = 'Clover';
-var cat2 = 'Aria';
+var catNames = ['Clover', 'Aria', 'Scrap', 'Snowball', 'Spot'];
+var catImages = [
+    {name:'Aria', image:'Aria.JPG'},
+    {name:'Clover', image:'Clover.PNG'},
+    {name:'Scrap', image:'Scrap.jpg'},
+    {name:'Snowball', image:'Snowball.jpg'},
+    {name:'Spot', image:'Spot.jpg'}
+];
+
+// $(function() {
+//     $(".clover").text(cat1);
+//     $(".aria").text(cat2);
+// });
+
 function displayClicks() {
-    document.getElementById('clck').innerHTML = 'You clicked the cats ' + clicks + ' times!';
+    document.getElementById('clck').innerHTML = 'You clicked ' + catNames[i] + clicks[i] + ' times!';
 }
-$(".clover").innerHTML = cat1;
-$(".aria").innerHTML = cat2;
+
 
 $( "img" ).click(function(e) {
     const el = e.target;
@@ -13,6 +24,6 @@ $( "img" ).click(function(e) {
         clicks += 1;
     })();
     displayClicks();
-  });
+});
 
   
