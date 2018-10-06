@@ -1,4 +1,4 @@
-var clicks = 0;
+var clicks = [0, 0, 0, 0, 0];
 var catNames = ['Clover', 'Aria', 'Scrap', 'Snowball', 'Spot'];
 var catImages = [
     {name:'Aria', image:'Aria.JPG'},
@@ -7,6 +7,16 @@ var catImages = [
     {name:'Snowball', image:'Snowball.jpg'},
     {name:'Spot', image:'Spot.jpg'}
 ];
+x = '';
+catNames.forEach(function(n) {
+    x += n + '<br>';
+    return x;
+});
+document.getElementById("container").innerHTML = x;
+
+$("#container").click(function(e) {
+    const el = e.target;
+});
 
 // $(function() {
 //     $(".clover").text(cat1);
