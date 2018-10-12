@@ -18,12 +18,9 @@ catImages[4] = new Image();
 catImages[4].src = 'images/Spot.jpg';
 
 function clearImage(){
-    if($('img').css= "display" && "block"){
-        $('img').hide();
-    }
-    if($('img').css= "display" && "none"){
-        $('img').show();
-    }
+    rmv = $('.first')
+    rmv.hide();
+    rmv.removeClass();
     
 };
 
@@ -48,19 +45,52 @@ function showImage(n) {
         img.width = 400;
         img.height = 400;
         img.alt = catNames[n];
+        img.className = 'first';
+        $('.first').show();
         document.body.appendChild(img);
     
 };
 
+function addClicks(n) {
+    if (n == 'Aria'){
+        n = 0;
+    }
+    if (n == 'Clover'){
+        n = 1;
+    }
+    if (n == 'Scrap'){
+        n = 2;
+    }
+    if (n == 'Snowball'){
+        n = 3;
+    }
+    if (n == 'Spot'){
+        n = 4;
+    }
+
+    $('.first' ).click(function(e) {
+        const el = e.target;
+        let add = (function () {
+            clicks[n] += 1;
+        })();
+        displayClicks();
+    });
+    function displayClicks() {
+        document.getElementById('clck').innerHTML = 'You clicked ' + catNames[n] + ' ' + clicks[n] + ' times!';
+    }
+
+}
+
 catNames.forEach(function(n) {
     var x = n;
-    var elem = document.createElement('div');
+    var elem = document.createElement('button');
     elem.textContent = x;
     elem.addEventListener('click', (function(nCopy) {
         return function() {
             // displayImage();
                 clearImage();
                 showImage(n);
+                addClicks(n);
             // alert(nCopy)
         };
     })(n));
@@ -77,15 +107,13 @@ $("#container").click(function(e) {
 //     $(".aria").text(cat2);
 // });
 
-function displayClicks() {
-    document.getElementById('clck').innerHTML = 'You clicked ' + catNames[i] + clicks[i] + ' times!';
-}
+
 
 
 $( "img" ).click(function(e) {
     const el = e.target;
     let add = (function () {
-        clicks += 1;
+        clicks[0] += 1;
     })();
     displayClicks();
 });
